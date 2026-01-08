@@ -1,7 +1,7 @@
 # Normalize text and handle Unity assets cleanly
 * text=auto
 
-# Unity YAML files should use LF line endings
+# Unity YAML/text files should use LF line endings
 *.meta         text eol=lf
 *.unity        text eol=lf
 *.prefab       text eol=lf
@@ -12,10 +12,12 @@
 *.inputactions text eol=lf
 *.shader       text eol=lf
 *.shadergraph  text eol=lf
+*.json         text eol=lf
+*.txt          text eol=lf
+*.scenetemplate text eol=lf
 
 # Code files: normalize as text
 *.cs text=auto
-*.json text=auto
 *.yml text=auto
 *.yaml text=auto
 *.md text=auto
