@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 	[Header("Movimiento")]
 	[SerializeField] float walkSpeed = 5f;
 	[SerializeField] float sprintSpeed = 8f;
+	[SerializeField] float inputDeadzone = 0.2f;
 
 	[Header("Salto/Gravedad")]
 	[SerializeField] float jumpHeight = 1.5f;
@@ -63,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
 		float h = Input.GetAxisRaw("Horizontal"); // A/D o flechas
 		float v = Input.GetAxisRaw("Vertical");   // W/S o flechas
+
+		// Deadzone para evitar drift por mandos/ruido
+		if (Mathf.Abs(h) < inputDeadzone) h = 0f;
+		if (Mathf.Abs(v) < inputDeadzone) v = 0f;
 
 		Vector3 move = (transform.right * h + transform.forward * v);
 		if (move.sqrMagnitude > 1f) move.Normalize(); // si se mueve en diagonal, normalizar
